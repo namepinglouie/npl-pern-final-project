@@ -62,13 +62,13 @@ function OatmealNewForm() {
                 <textarea id = "description" value = {description} onChange = {handleText}></textarea>
 
                 <label htmlFor = "type">OATMEAL TYPE</label>
-                <datalist id = "type" value = {type} onChange = {handleText}>
+                <datalist id = "type" value = {type}>
                     <option value = "Sweetened Hot Oatmeal" />
                     <option value = "Savory Hot Oatmeal" />
                     <option value = "Unflavored Hot Oatmeal" />
                     <option value = "Overnight Oats" />
                 </datalist>
-                <input list = "type" id = "custom"  name = "custom" placeholder = "custom oatmeal type" />
+                <input list = "type" id = "type"  name = "type" onChange = {handleText} placeholder = "custom oatmeal type" />
 
                 <label htmlFor = "price">PRICE</label>
                 <input id = "price" value = {price} type = "number" onChange = {handleText} />
@@ -78,6 +78,8 @@ function OatmealNewForm() {
 
                 <label htmlFor = "image">IMAGE</label>
                 <input id = "image" value = {image} type = "text" onChange = {handleText} />
+
+                <button type = "submit">SUBMIT</button>
             </form>
         </div>
     )
