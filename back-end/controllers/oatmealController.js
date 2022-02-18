@@ -1,6 +1,7 @@
 const express = require("express");
 const oatmeals = express.Router();
 const {getAllOatmeals, getOatmeal, createOatmeal, deleteOatmeal, updateOatmeal} = require("../queries/oatmeals.js");
+const {checkRating} = require("../validations/validate.js");
 
 oatmeals.get("/", async (req, res) => {
     try {
@@ -20,7 +21,7 @@ oatmeals.get("/:id", async (req, res) => {
     }
 });
 
-oatmeals.post("/", async (req, res) => {
+oatmeals.post("/", checkRating, async (req, res) => {
     try {
         const createdOatmeal = await createOatmeal(req.body);
         if(createdOatmeal.id) res.status(200).json(createdOatmeal);
@@ -40,7 +41,7 @@ oatmeals.delete("/:id", async (req, res) => {
     }
 });
 
-oatmeals.put("/:id", async (req, res) => {
+oatmeals.put("/:id", checkRating, async (req, res) => {
     try {
         const updatedOatmeal = await updateOatmeal(req.params.id, req.body);
         if(updatedOatmeal.id) res.status(200).json(updatedOatmeal);
