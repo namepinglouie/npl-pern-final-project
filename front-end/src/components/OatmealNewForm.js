@@ -1,6 +1,8 @@
 import axios from "axios";
-import {useState} from "react";
+import {React, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
+import ToggleFavorite from "./ToggleFavorite";
 
 const API = process.env.REACT_APP_API_URL;
 
@@ -21,11 +23,15 @@ function OatmealNewForm() {
         image: ""
     });
 
-    let {name, calories, carb, fiber, sugar, fat, is_favorite, description, type, price, rating, image} = oatmeal;
+    let {name, calories, carb, fiber, sugar, fat, description, type, price, image} = oatmeal;
 
     const navigate = useNavigate();
 
     const handleText = (e) => setOatmeal({...oatmeal, [e.target.id]: e.target.value});
+
+    const handleRating = (rate) => setOatmeal({...oatmeal, rating: rate});
+
+    const handleHeartChange = () => {setOatmeal({...oatmeal, is_favorite: !oatmeal.is_favorite})};
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,49 +43,77 @@ function OatmealNewForm() {
     return (
         <div id="new-form">
             <form onSubmit={handleSubmit}>
-                <label htmlFor = "name">NAME</label>
-                <input id = "name" value = {name} type = "text" onChange = {handleText} />
+                <div className="new-input-parts">
+                    <label htmlFor = "name">NAME</label>
+                    <input id = "name" value = {name} type = "text" onChange = {handleText} />
+                </div>
 
-                <label htmlFor = "calories">CALORIES</label>
-                <input id = "calories" value = {calories} type = "number" onChange = {handleText} />
+                <div className="new-input-parts-numbers">
+                    <div className="new-input-parts">
+                        <label htmlFor = "calories">CALORIES</label>
+                        <input id = "calories" value = {calories} type = "number" onChange = {handleText} />
+                    </div>
 
-                <label htmlFor = "carb">CARB</label>
-                <input id = "carb" value = {carb} type = "number" onChange = {handleText} />
+                    <div className="new-input-parts">
+                        <label htmlFor = "carb">CARB</label>
+                        <input id = "carb" value = {carb} type = "number" onChange = {handleText} />
+                    </div>
 
-                <label htmlFor = "fiber">FIBER</label>
-                <input id = "fiber" value = {fiber} type = "number" onChange = {handleText} />
+                    <div className="new-input-parts">
+                        <label htmlFor = "fiber">FIBER</label>
+                        <input id = "fiber" value = {fiber} type = "number" onChange = {handleText} />
+                    </div>
 
-                <label htmlFor = "sugar">SUGAR</label>
-                <input id = "sugar" value = {sugar} type = "number" onChange = {handleText} />
+                    <div className="new-input-parts">
+                        <label htmlFor = "sugar">SUGAR</label>
+                        <input id = "sugar" value = {sugar} type = "number" onChange = {handleText} />
+                    </div>
 
-                <label htmlFor = "fat">FAT</label>
-                <input id = "fat" value = {fat} type = "number" onChange = {handleText} />
+                    <div className="new-input-parts">
+                        <label htmlFor = "fat">FAT</label>
+                        <input id = "fat" value = {fat} type = "number" onChange = {handleText} />
+                    </div>
 
-                <label htmlFor = "is_favorite">FAVORITE</label>
-                <input id = "is_favorite" value = {is_favorite} type = "text" onChange = {handleText} placeholder = "switching hearts" />
+                    <div className="new-input-parts">
+                        <label htmlFor = "is_favorite">FAVORITE</label>
+                        <ToggleFavorite oatmeal = {oatmeal} handleHeartChange = {handleHeartChange} />
+                    </div>
+                </div>
 
-                <label htmlFor = "description">DESCRIPTION</label>
-                <textarea id = "description" value = {description} onChange = {handleText}></textarea>
+                <div className="new-input-parts description">
+                    <label htmlFor = "description">DESCRIPTION</label>
+                    <textarea id = "description" value = {description} onChange = {handleText}></textarea>
+                </div>
 
-                <label htmlFor = "type">OATMEAL TYPE</label>
-                <datalist id = "type" value = {type}>
-                    <option value = "Sweetened Hot Oatmeal" />
-                    <option value = "Savory Hot Oatmeal" />
-                    <option value = "Unflavored Hot Oatmeal" />
-                    <option value = "Overnight Oats" />
-                </datalist>
-                <input list = "type" id = "type"  name = "type" onChange = {handleText} placeholder = "custom oatmeal type" />
+                <div className="new-input-parts-type-price">
+                    <div className="new-input-parts">
+                        <label htmlFor = "type">OATMEAL TYPE</label>
+                        <datalist id = "type" value = {type}>
+                            <option value = "Sweetened Hot Oatmeal" />
+                            <option value = "Savory Hot Oatmeal" />
+                            <option value = "Unflavored Hot Oatmeal" />
+                            <option value = "Overnight Oats" />
+                        </datalist>
+                        <input list = "type" id = "type"  name = "type" onChange = {handleText} placeholder = "custom oatmeal type" />
+                    </div>
 
-                <label htmlFor = "price">PRICE</label>
-                <input id = "price" value = {price} type = "number" onChange = {handleText} />
+                    <div className="new-input-parts">
+                        <label htmlFor = "price">PRICE</label>
+                        <input id = "price" value = {price} type = "number" onChange = {handleText} />
+                    </div>
+                </div>
 
-                <label htmlFor = "rating">RATING</label>
-                <input id = "rating" value = {rating} type = "number" onChange = {handleText} placeholder = "0 - 5" />
+                <div className="new-input-parts-rating">
+                    <label htmlFor = "rating">RATING</label>
+                    <ReactStars count = {5} onChange = {handleRating} size = {50} activeColor = "#ffd700" />
+                </div>
 
-                <label htmlFor = "image">IMAGE</label>
-                <input id = "image" value = {image} type = "text" onChange = {handleText} />
+                <div className="new-input-parts">
+                    <label htmlFor = "image">IMAGE</label>
+                    <input id = "image" value = {image} type = "text" onChange = {handleText} />
+                </div>
 
-                <button type = "submit">SUBMIT</button>
+                <div className="center-btn"><button id="submit-btn" type = "submit">SUBMIT</button></div>
             </form>
         </div>
     )

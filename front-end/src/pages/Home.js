@@ -27,7 +27,7 @@ function Home() {
     return (
         <div className="home">
             <h1 className="sub-title">FEATURED OATMEALS</h1>
-            <div id="content-feature">
+            <div className = "content-feature">
                 <AliceCarousel autoPlay animationType = "slide" disableButtonsControls infinite autoPlayInterval = "2750">
                 {displayFeatured}
                 </AliceCarousel>
