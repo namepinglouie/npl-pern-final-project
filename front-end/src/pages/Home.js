@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 
@@ -18,7 +19,9 @@ function Home() {
                                   .map(oatmeal => {
                                     return (
                                         <div className="featured-card">
-                                            <img key = {oatmeal.id} src = {oatmeal.image} className = "slide-img" alt = {oatmeal.name} />
+                                            <Link to = {`/oatmeals/${oatmeal.id}`}>
+                                                <img key = {oatmeal.id} src = {oatmeal.image} className = "slide-img" alt = {oatmeal.name} />
+                                            </Link>
                                             <p>{oatmeal.name}</p>
                                         </div>
                                     )

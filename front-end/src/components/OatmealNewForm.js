@@ -55,22 +55,22 @@ function OatmealNewForm() {
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "carb">CARB</label>
+                        <label htmlFor = "carb">CARB(g)</label>
                         <input id = "carb" value = {carb} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "fiber">FIBER</label>
+                        <label htmlFor = "fiber">FIBER(g)</label>
                         <input id = "fiber" value = {fiber} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "sugar">SUGAR</label>
+                        <label htmlFor = "sugar">SUGAR(g)</label>
                         <input id = "sugar" value = {sugar} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "fat">FAT</label>
+                        <label htmlFor = "fat">FAT(g)</label>
                         <input id = "fat" value = {fat} type = "number" onChange = {handleText} />
                     </div>
 

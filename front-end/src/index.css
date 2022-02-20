@@ -121,8 +121,7 @@ article {
 
 /* NEW FORM */
 #new-form {
-  background-color: green;
-  width: 60%;
+  width: 645px;
   margin: auto;
 }
 
@@ -165,10 +164,6 @@ article {
   color: #ff9770;
 }
 
-.new-input-parts #description {
-  display: block;
-}
-
 .description {
   margin-top: 80px;
 }
@@ -181,10 +176,12 @@ article {
   border: none;
   padding: 5px;
   color: #ff9770;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .new-input-parts-numbers {
-  display: inline-flex;
+  display: -webkit-box;
   text-align: center;
   border: none;
   height: 30px;
@@ -221,12 +218,82 @@ article {
   color: #ff9770;
 }
 
-.new-form .center-btn {
+.center-btn {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 input::-webkit-outer-spin-button, 
 input::-webkit-inner-spin-button {
   appearance: none;
+}
+
+/* SHOW PAGE */
+.oatmeal-details {
+  background-color: antiquewhite;
+  width: 645px;
+  color: #ff9770;
+  margin: 0 auto;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.oatmeal-details img {
+  margin: auto;
+  display: block;
+}
+
+.details-nutrition {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.details-nutrition h5 {
+  margin: 20px;
+  display: inline;
+}
+
+.oatmeal-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.oatmeal-name {
+  padding-right: 15px;
+}
+
+.oatmeal-heading span .heart {
+  width: 50px;
+  position: relative;
+  top: 10px;
+}
+
+.oatmeal-details div {
+  margin: auto;
+}
+
+.oatmeal-details span {
+  margin-bottom: 20px;
+}
+
+.oatmeal-details h3 {
+  text-align: center;
+  margin-top: -10px;
+}
+
+.oatmeal-details-navigation {
+  text-align: center;
+}
+
+.oatmeal-details-navigation button {
+  width: 100px;
+  height: 35px;
+  font-size: 18px;
+  margin: 15px;
+  border-radius: 10px;
+  border: none;
+  color: #ff9770;
+  background-color: antiquewhite;
 }

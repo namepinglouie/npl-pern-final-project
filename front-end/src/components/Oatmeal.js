@@ -9,7 +9,7 @@ function Oatmeal({oatmeal}) {
         size: 25,
         value: rating,
         edit: false
-    }
+    };
 
     return (
         <article>
