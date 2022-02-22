@@ -18,9 +18,9 @@ function Home() {
     let displayFeatured = oatmeals.filter((oatmeal) => oatmeal.featured)
                                   .map(oatmeal => {
                                     return (
-                                        <div className="featured-card">
+                                        <div key = {oatmeal.id} className="featured-card">
                                             <Link to = {`/oatmeals/${oatmeal.id}`}>
-                                                <img key = {oatmeal.id} src = {oatmeal.image} className = "slide-img" alt = {oatmeal.name} />
+                                                <img  src = {oatmeal.image} className = "slide-img" alt = {oatmeal.name} />
                                             </Link>
                                             <p>{oatmeal.name}</p>
                                         </div>

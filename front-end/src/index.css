@@ -51,6 +51,10 @@ nav {
   margin-top: 275px;
 }
 
+.footer p {
+  margin: auto;
+}
+
 /* HOME PAGE */
 .sub-title {
   color: white;
@@ -120,7 +124,7 @@ article {
 }
 
 /* NEW FORM */
-#new-form {
+#new-form, #edit-form {
   width: 645px;
   margin: auto;
 }
@@ -296,4 +300,34 @@ input::-webkit-inner-spin-button {
   border: none;
   color: #ff9770;
   background-color: antiquewhite;
+}
+
+/* EDIT FORM */
+.edit-form .oatmeal-details-navigation {
+  text-align: center;
+}
+
+.edit-form .oatmeal-details-navigation button {
+  width: 100px;
+  height: 35px;
+  font-size: 18px;
+  margin: 15px;
+  border-radius: 10px;
+  border: none;
+  color: #ff9770;
+  background-color: antiquewhite;
+}
+
+/* INDEX PAGE - FILTERING SECTION */
+.filter-content {
+  background-color: antiquewhite;
+  width: 85%;
+  height: 250px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.sub-sub-title {
+  color: #ff9770;
+  text-align: center;
 }

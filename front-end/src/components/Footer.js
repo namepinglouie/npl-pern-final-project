@@ -1,7 +1,7 @@
 function Footer() {
     return (
         <nav className="footer">
-           <h1>FOOTER</h1>
+           <p>Copyright © 2022 Oatmeal Website Sample Testing. All Rights Reserved</p>
         </nav>
     )
 }
