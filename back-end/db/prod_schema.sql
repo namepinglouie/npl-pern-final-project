@@ -1,6 +1,18 @@
-DROP TABLE IF EXISTS test;
+DROP TABLE IF EXISTS oatmeals;
 
-CREATE TABLE test (
+CREATE TABLE oatmeals (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    name TEXT NOT NULL,
+    calories INTEGER NOT NULL DEFAULT 0,
+    carb INTEGER NOT NULL DEFAULT 0,
+    fiber INTEGER NOT NULL DEFAULT 0,
+    sugar INTEGER NOT NULL DEFAULT 0,
+    fat INTEGER NOT NULL DEFAULT 0,
+    is_favorite BOOLEAN,
+    description TEXT,
+    type TEXT NOT NULL,
+    price NUMERIC(4, 2) DEFAULT 0.00,
+    rating SMALLINT DEFAULT 0,
+    featured BOOLEAN,
+    image TEXT
 );
