@@ -123,6 +123,12 @@ article {
   margin-top: -40px;
 }
 
+.oatmeals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 /* NEW FORM */
 #new-form, #edit-form {
   width: 645px;
@@ -321,8 +327,8 @@ input::-webkit-inner-spin-button {
 /* INDEX PAGE - FILTERING SECTION */
 .filter-content {
   background-color: antiquewhite;
-  width: 85%;
-  height: 250px;
+  width: 800px;
+  height: 120px;
   margin: auto;
   border-radius: 10px;
 }
@@ -330,4 +336,19 @@ input::-webkit-inner-spin-button {
 .sub-sub-title {
   color: #ff9770;
   text-align: center;
+}
+
+.filter-div {
+  padding: 10px;
+  color: #ff9770;
+}
+
+.filter-div-fav {
+  display: flex;
+  align-items: center;
+}
+
+#filter-fav {
+  width: 20px;
+  height: 20px;
 }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import {React, useState} from "react";
+import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import ToggleFavorite from "./ToggleFavorite";
@@ -34,6 +34,7 @@ function OatmealNewForm() {
     const handleHeartChange = () => {setOatmeal({...oatmeal, is_favorite: !oatmeal.is_favorite})};
 
     const handleSubmit = (e) => {
+        console.log("testing");
         e.preventDefault();
         axios.post(`${API}/oatmeals`, oatmeal)
              .then(res => navigate("/oatmeals"))
@@ -55,22 +56,22 @@ function OatmealNewForm() {
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "carb">CARB(g)</label>
+                        <label htmlFor = "carb">CARB</label>
                         <input id = "carb" value = {carb} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "fiber">FIBER(g)</label>
+                        <label htmlFor = "fiber">FIBER</label>
                         <input id = "fiber" value = {fiber} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "sugar">SUGAR(g)</label>
+                        <label htmlFor = "sugar">SUGAR</label>
                         <input id = "sugar" value = {sugar} type = "number" onChange = {handleText} />
                     </div>
 
                     <div className="new-input-parts">
-                        <label htmlFor = "fat">FAT(g)</label>
+                        <label htmlFor = "fat">FAT</label>
                         <input id = "fat" value = {fat} type = "number" onChange = {handleText} />
                     </div>
 

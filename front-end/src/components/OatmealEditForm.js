@@ -1,4 +1,4 @@
-import {useState, useEffect, React} from "react";
+import {useState, useEffect} from "react";
 import {useNavigate, useParams, Link} from "react-router-dom";
 import axios from "axios"; 
 import ToggleFavorite from "./ToggleFavorite";

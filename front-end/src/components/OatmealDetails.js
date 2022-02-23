@@ -1,23 +1,33 @@
+import {useState, useEffect} from "react";
 import {Link, useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
 import ToggleFavorite from "./ToggleFavorite";
+import ReactStars from "react-rating-stars-component";
 
-function OatmealDetails({oatmeal, readRating, getStars}) {
-    const API = process.env.REACT_APP_API_URL;
+const API = process.env.REACT_APP_API_URL;
+
+function OatmealDetails() {
+    const [oatmeal, setOatmeal] = useState([]);
     let navigate = useNavigate();
     let {id} = useParams();
-    let {name, calories, carb, fiber, sugar, fat, description, type, price, image} = oatmeal;
+    let {name, calories, carb, fiber, sugar, fat, description, type, price, rating, image} = oatmeal;
 
-    // const readRating = {
-    //     size: 50,
-    //     edit: false,
-    //     value: rating,
-    // };
+    useEffect(() => {
+        axios.get(`${API}/oatmeals/${id}`)
+             .then(res => setOatmeal(res.data))
+             .catch(error => console.log(error))
+    }, [id]);
 
     const handleDelete = () => {
         axios.delete(`${API}/oatmeals/${id}`)
              .then(res => navigate("/oatmeals"))
              .catch(error => console.log(error))
+    };
+
+    const readRating = {
+        size: 25,
+        edit: false,
+        value: rating,
     };
 
     return (
@@ -27,7 +37,7 @@ function OatmealDetails({oatmeal, readRating, getStars}) {
                     <h2 className="oatmeal-name">{name}</h2>
                     <span><ToggleFavorite oatmeal = {oatmeal} /></span>
                 </div>
-                {readRating && getStars(readRating)}
+                <span><ReactStars key = {oatmeal.id} {...readRating} /></span>
                 <h3>$ {price}</h3>
                 <img src = {image} alt = {name} />
                 <div className="details-nutrition">
