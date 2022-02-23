@@ -1,28 +1,35 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-const API = process.env.REACT_APP_API_URL;
+// DEPENDENCIES
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-console.log(API);
+// PAGES
+import Home from "./pages/Home.js";
+import Index from "./pages/Index.js";
+import Show from "./pages/Show.js";
+import Edit from "./pages/Edit.js";
+import New from "./pages/New.js";
+import FourOFour from "./pages/FourOFour.js";
+
+// COMPONENTS
+import Navbar from "./components/Navbar.js";
+import Footer from "./components/Footer.js";
+
 function App() {
-  const [days, setDays] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => {
-          setDays(response.data);
-        },
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
-  return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+  return(
+    <div className="app">
+      <Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path = "/" element = {<Home />} />
+            <Route path = "/oatmeals" element = {<Index />} />
+            <Route path = "/oatmeals/new" element = {<New />} />
+            <Route path = "/oatmeals/:id" element = {<Show />} />
+            <Route path = "/oatmeals/:id/edit" element = {<Edit />} />
+            <Route path = "*" element = {<FourOFour />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
     </div>
   );
 }

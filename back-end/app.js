@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const oatmealController = require("./controllers/oatmealController.js");
 
 // CONFIGURATION
 const app = express();
@@ -11,7 +12,13 @@ app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Hello, Oatmeal World!");
+});
+
+app.use("/oatmeals", oatmealController);
+
+app.get("*", (req, res) => {
+  res.status(404).send("Page not found");
 });
 
 /////////////////////////////////////
