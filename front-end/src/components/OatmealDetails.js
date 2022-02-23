@@ -1,7 +1,6 @@
 import {Link, useParams, useNavigate} from "react-router-dom";
 import axios from "axios";
 import ToggleFavorite from "./ToggleFavorite";
-import ReactStars from "react-rating-stars-component";
 
 function OatmealDetails({oatmeal, readRating, getStars}) {
     const API = process.env.REACT_APP_API_URL;

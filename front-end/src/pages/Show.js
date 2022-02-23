@@ -17,7 +17,7 @@ function Show() {
                 setReadRating(res.data.rating)
              })
              .catch(error => console.log(error))
-    }, [id]);
+    }, [id, API]);
 
     const getStars = (ratingParam) => {
         console.log(readRating);
@@ -33,9 +33,6 @@ function Show() {
     return (
         <div className="show">
             <h1 className="sub-title">OATMEAL FLAVOR FACTS</h1>
-            <div>
-                {readRating && getStars(readRating)}
-            </div>
             <OatmealDetails oatmeal = {oatmeal} readRating = {readRating} getStars = {getStars} />
         </div>
     )
