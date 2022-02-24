@@ -1,3 +1,9 @@
+# FRONT END DEPLOYED
+- https://goofy-banach-c385bb.netlify.app/
+
+# BACK END DEPLOYED
+- https://npl-cta-be.herokuapp.com/
+
 # PERN Final Project Template
 
 - select `use this template`
